@@ -23,6 +23,7 @@ public class RegExDemo {
 		re3.findWordsContainingText();
 		re3.extractDate();
 		re2.extractNonAlphabetsExcludingSpaces();
+		re2.extractNonEmailText();
 	}
 
 	static void splitOnMatchAndPrint(String text, String pattern) {
@@ -96,5 +97,11 @@ public class RegExDemo {
 		System.out.println("###Extracting non-alphabet characters excluding spaces###");
 		String pattern = "[^a-zA-Z\\s]+";
 		printOccurrencesOfPattern(this.text, pattern);
+	}
+
+	void extractNonEmailText() {
+		System.out.println("###Extracting non-email text (Negative Lookahead)###");
+		String pattern = "sample(?!@)";
+		printOccurrencesOfPattern(this.text, pattern);	
 	}
 }
